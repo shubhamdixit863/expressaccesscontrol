@@ -3,7 +3,7 @@
 Its a express middleware module that provides you clean interface to use access control in your application
 
 ## Usage
-```nodejs
+```python
 let express=require('express');
 let app=express();
 let access=require("./index");
