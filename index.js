@@ -1,3 +1,8 @@
+let  http = require('http');
+let  url  = require('url');
+let  fs   = require('fs');
+
+
 module.exports.configure=function (roles_array,errorpage)
 {
     // filtering roles array  for gues and blank
@@ -36,8 +41,8 @@ module.exports.configure=function (roles_array,errorpage)
           
             let activated_url=req.url; // get the current requested url from request Object
            let current_role=role // get the current role from session 
-           console.log(role)
-           let filtered_url=roles_array.filter(ele=>ele.url==activated_url); // filtering the url
+           let main_activated_url=activated_url.match(/(?:^\/)?[^/]+/g)[0]
+           let filtered_url=roles_array.filter(ele=>ele.url==main_activated_url); // filtering the url
       
        if(filtered_url.length>1)
        {
